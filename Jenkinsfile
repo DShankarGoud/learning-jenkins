@@ -1,19 +1,32 @@
-pipeline {
-  agent any
+//pipeline {
+//  agent any
+//
+//  stages {
+//
+//    stage ('Test') {
+//      steps {
+//       echo 'Hello World'
+//      }
+//    }
+//
+//    stage ('Test1') {
+//          steps {
+//            echo 'Hello World'
+//          }
+//        }
+//
+//  }
+//}
 
-  stages {
 
-    stage ('Test') {
-      steps {
-        echo 'Hello World'
-      }
-    }
+node {
 
-    stage ('Test1') {
-          steps {
-            echo 'Hello World'
-          }
-        }
+ stage('Test') {
+   echo 'Hello World'
+ }
 
-  }
+ stage('Test1') {
+   echo 'HelloWorld'
+ }
+
 }
