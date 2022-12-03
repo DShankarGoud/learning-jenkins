@@ -10,10 +10,6 @@ pipeline {
     choice(name: 'COMPONENT', choices: ['frontend', 'catalogue', 'mongodb'], description: 'Pick Component')
   }
 
-  environment {
-    SSH = credentials('SSH')
-  }
-
   stages {
 
     stage('Clone Ansible Repo') {
