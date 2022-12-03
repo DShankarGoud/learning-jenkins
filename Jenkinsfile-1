@@ -6,8 +6,8 @@ pipeline {
   }
 
   parameters {
-           choice(name: 'ENV', choices: ['dev', 'prod'], description: 'Pick ENV')
-           choice(name: 'COMPONENT', choices: ['frontend', 'catalogue', 'mongodb'], description: 'Pick component')
+     choice(name: 'ENV', choices: ['dev', 'prod'], description: 'Pick ENV')
+     choice(name: 'COMPONENT', choices: ['frontend', 'catalogue', 'mongodb'], description: 'Pick component')
   }
 
   environment {
@@ -36,5 +36,4 @@ pipeline {
   }
 
  }
-
 }
