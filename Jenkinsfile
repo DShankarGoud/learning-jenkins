@@ -1,32 +1,35 @@
-//pipeline {
-//  agent any
-//
-//  stages {
-//
-//    stage ('Test') {
-//      steps {
-//       echo 'Hello World'
-//      }
-//    }
-//
-//    stage ('Test1') {
-//          steps {
-//            echo 'Hello World'
-//          }
-//        }
-//
-//  }
-//}
+pipeline {
+  agent {
+    node {
+       label 'workstation'
+    }
+  }
 
+  stages {
 
-node {
+    stage ('Test') {
+      steps {
+       echo 'Hello World'
+      }
+    }
 
- stage('Test') {
-   echo 'Hello World'
- }
-
- stage('Test1') {
-   echo 'HelloWorld'
- }
-
+    stage ('Test1') {
+          steps {
+            echo 'Hello World'
+          }
+    }
+  }
 }
+
+
+//node {
+//
+// stage('Test') {
+//   echo 'Hello World'
+// }
+//
+// stage('Test1') {
+//   echo 'HelloWorld'
+// }
+//
+//}
