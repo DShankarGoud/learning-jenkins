@@ -10,6 +10,10 @@ pipeline {
            choice(name: 'COMPONENT', choices: ['frontend', 'catalogue', 'mongodb'], description: 'Pick component')
   }
 
+  environment {
+    SSH = credentials('SSH')
+  }
+
  stages {
 
    stage('Clone Ansible Repo') {
@@ -19,7 +23,7 @@ pipeline {
      }
    }
 
-  stage('Create Ec2 Server') {
+  stage('Run Ansible') {
     steps {
       sh 'ansible-playbook -i roboshop.yml -e HOST=${COMPONENT} -e HOST_NAME=${COMPONENT} -e ENV=${ENV} -e -e ansible_user=${SSH_USR} -e ansible_password=${SSH_PSW}'
     }
