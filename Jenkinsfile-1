@@ -31,7 +31,7 @@ pipeline {
 
   stage('Run Ansible') {
     steps {
-      sh 'ansible-playbook -i roboshop.yml -e HOST=${COMPONENT} -e HOST_NAME=${COMPONENT} -e ENV=${ENV} -e -e ansible_user=${SSH_USR} -e ansible_password=${SSH_PSW}'
+      sh 'ansible-playbook -i roboshop.yml -e HOST=${COMPONENT} -e ROLE_NAME=${COMPONENT} -e ENV=${ENV} -e -e ansible_user=${SSH_USR} -e ansible_password=${SSH_PSW}'
     }
   }
 
