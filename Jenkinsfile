@@ -33,6 +33,7 @@ pipeline {
        echo DEMO_URL
        echo SSH
        sh 'echo -e "\\e[31mHello"'
+       echo PERSON
 
       }
     }
