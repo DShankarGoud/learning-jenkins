@@ -12,6 +12,9 @@ pipeline {
   stages {
 
     stage ('Test') {
+      environment {
+        DEMO_URL = "yahoo.com"
+      }
       steps {
        echo 'Hello World'
        echo DEMO_URL
