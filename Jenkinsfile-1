@@ -1,0 +1,30 @@
+pipeline {
+  agent {
+    node {
+       label 'workstation'
+    }
+  }
+
+  parameters {
+           choice(name: 'ENV', choices: ['dev', 'prod'], description: 'Pick ENV')
+           choice(name: 'COMPONENT', choices: ['frontend', 'catalogue', 'mongodb'], description: 'Pick component')
+  }
+
+ stages {
+
+   stage('Clone Ansible Repo') {
+     steps {
+       git branch: 'main', url: 'https://github.com/DShankarGoud/roboshop-ansible.git'
+
+     }
+   }
+
+  stage('Create Ec2 Server') {
+    steps {
+      sh 'ls -ltr'
+    }
+  }
+
+ }
+
+}
