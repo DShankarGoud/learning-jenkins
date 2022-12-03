@@ -10,7 +10,8 @@ pipeline {
      ansiColor('xterm')
   }
 
-  triggers { cron('*/1 * * * *') }
+ // triggers { cron('*/1 * * * *') }
+  triggers { pollSCM('*/1 * * * *') }
 
   parameters {
           string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
