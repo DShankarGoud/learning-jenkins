@@ -21,7 +21,7 @@ pipeline {
 
   stage('Create Ec2 Server') {
     steps {
-      sh 'ls -ltr'
+      sh 'bash create-ec2-with-env.sh ${ENV}'
     }
   }
 
