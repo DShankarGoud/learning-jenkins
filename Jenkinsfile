@@ -88,7 +88,7 @@ pipeline {
         }
       }
        steps {
-         sh 'echo PERSON' = ${PERSON}
+         sh 'echo PERSON = ${PERSON}'
        }
     }
   }
