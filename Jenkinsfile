@@ -68,46 +68,71 @@
 //
 //}
 //
+//
+//pipeline {
+//  agent any
+//
+//   tools {
+//      maven 'maven'
+//   }
+//
+//   environment {
+//     ENV="dev"
+//   }
+//
+// triggers { upstream(upstreamProjects: 'new1', threshold: hudson.model.Result.SUCCESS) }
+//
+//  stages {
+//
+//    stage('Email to Approver') {
+//       steps {
+//         sh 'echo email'
+//       }
+//    }
+//    stage('one') {
+//      when {
+//         beforeInput true
+//         expression {
+//           ENV == "prod"
+//         }
+//      }
+//      input {
+//        message "Do you approve?"
+//        ok "YES"
+//        submitter "admin"
+//        parameters {
+//          string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+//        }
+//      }
+//       steps {
+//         sh 'echo PERSON = ${PERSON}'
+//       }
+//    }
+//  }
+//
+//}
+//
+//
+//
+//
+//
+
 
 pipeline {
   agent any
 
-   tools {
-      maven 'maven'
-   }
-
-   environment {
-     ENV="dev"
-   }
-
- triggers { upstream(upstreamProjects: 'new1', threshold: hudson.model.Result.SUCCESS) }
-
   stages {
 
-    stage('Email to Approver') {
-       steps {
-         sh 'echo email'
-       }
-    }
-    stage('one') {
-      when {
-         beforeInput true
-         expression {
-           ENV == "prod"
-         }
-      }
-      input {
-        message "Do you approve?"
-        ok "YES"
-        submitter "admin"
-        parameters {
-          string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+    stage('high-level') {
+
+      stages {
+
+        stage('one') {
+          steps
+            sh 'echo one'
+          }
         }
       }
-       steps {
-         sh 'echo PERSON = ${PERSON}'
-       }
     }
   }
-
 }
