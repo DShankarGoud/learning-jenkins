@@ -91,6 +91,7 @@ pipeline {
     }
     stage('one') {
       when {
+         beforeInput true
          expression {
            ENV == "prod"
          }
