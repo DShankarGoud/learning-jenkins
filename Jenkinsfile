@@ -116,6 +116,43 @@
 //
 //
 //
+//
+//
+//pipeline {
+//  agent any
+//
+//  environment {
+//    ENV = "dev"
+//  }
+//
+//  stages {
+//
+//    stage('high-level1') {
+//
+//     when {
+//       expression {
+//         ENV == "prod"
+//       }
+//     }
+//      stages {
+//
+//        stage('one') {
+//          steps{
+//            sh 'echo one'
+//          }
+//        }
+//
+//        stage('two') {
+//           steps{
+//              sh 'echo two'
+//           }
+//        }
+//      }
+//    }
+//  }
+//}
+//
+//
 
 
 pipeline {
@@ -129,12 +166,7 @@ pipeline {
 
     stage('high-level1') {
 
-     when {
-       expression {
-         ENV == "prod"
-       }
-     }
-      stages {
+      parallel {
 
         stage('one') {
           steps{
