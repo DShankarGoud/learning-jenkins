@@ -121,10 +121,19 @@
 pipeline {
   agent any
 
+  environment {
+    ENV = "dev"
+  }
+
   stages {
 
     stage('high-level1') {
 
+     when {
+       expression {
+         ENV == "prod"
+       }
+     }
       stages {
 
         stage('one') {
