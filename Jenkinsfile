@@ -132,6 +132,12 @@ pipeline {
             sh 'echo one'
           }
         }
+
+        stage('two') {
+           steps{
+              sh 'echo two'
+           }
+        }
       }
     }
   }
